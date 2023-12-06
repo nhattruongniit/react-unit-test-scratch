@@ -20,7 +20,5 @@ https://stackoverflow.com/questions/46898638/importing-images-breaks-jest-test
 ## Setup test with Jest
 
 ```bash
-
-$ yarn add -D jest @testing-library/react
-
+$ yarn add -D jest @testing-library/react @testing-library/user-event ts-jest @types/jest @testing-library/jest-dom ts-node jest-environment-jsdom
 ```
