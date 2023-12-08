@@ -1,6 +1,9 @@
 // hooks
 import { useAppContext } from "./contexts/AppContext";
 
+// components
+import ProductDetail from "./ProductDetail";
+
 const App = () => {
   const { me } = useAppContext();
   const products = me.products;
@@ -26,7 +29,7 @@ const App = () => {
             >
               <img
                 className="w-full w-[350px] h-[350px] object-cover"
-                src={product.category.image}
+                src={product.image}
                 alt="Sunset in the mountains"
               />
               <div className="px-6 py-4">
@@ -37,6 +40,8 @@ const App = () => {
           );
         })}
       </div>
+
+      <ProductDetail />
     </div>
   );
 };

@@ -1,0 +1,37 @@
+import { render, screen } from "@testing-library/react";
+import { act } from "react-dom/test-utils";
+import userEvent from "@testing-library/user-event";
+
+// components
+import ProductDetail from "./ProductDetail";
+
+// services
+import * as services from "./services/fetchProductDetail";
+
+describe("ProductDetail", () => {
+  test("should be fetch api called", async () => {
+    // given
+    const mockFetchProduct = jest
+      .spyOn(services, "fetchProductDetail")
+      .mockImplementation(async () => {
+        return {
+          title: "Ergonomic Cotton Gloves",
+        };
+      });
+
+    // when
+    render(<ProductDetail />);
+
+    // then
+    act(() => {
+      userEvent.click(screen.getByText("Ergonomic Cotton Gloves"));
+    });
+
+    expect(mockFetchProduct).toHaveBeenCalled();
+    // await waitFor(() => {
+    //   expect(screen.getByText("Ergonomic Cotton Gloves")).toBeInTheDocument();
+    // });
+  });
+});
+
+// https://kentcdodds.com/blog/fix-the-not-wrapped-in-act-warning

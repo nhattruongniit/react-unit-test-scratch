@@ -37,6 +37,21 @@ describe("App", () => {
     expect(title).toBeInTheDocument();
   });
 
+  test("should be render lists product successfully", async () => {
+    // given
+    render(
+      <AppContext.Provider value={{ me }}>
+        <App />
+      </AppContext.Provider>
+    );
+
+    // when
+    const title = screen.getByText("Ergonomic Cotton Gloves");
+
+    // then
+    expect(title).toBeInTheDocument();
+  });
+
   test("should be save product id to localStorage when click on product", async () => {
     // given
     render(
