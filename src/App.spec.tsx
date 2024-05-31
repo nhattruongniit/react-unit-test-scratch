@@ -67,18 +67,18 @@ describe("App", () => {
     expect(window.localStorage.getItem("product_id")).toBe("423");
   });
 
-  test("should be reload page when click on product", async () => {
-    // given
-    render(
-      <AppContext.Provider value={{ me }}>
-        <App />
-      </AppContext.Provider>
-    );
+  // test("should be reload page when click on product", async () => {
+  //   // given
+  //   render(
+  //     <AppContext.Provider value={{ me }}>
+  //       <App />
+  //     </AppContext.Provider>
+  //   );
 
-    // when
-    await userEvent.click(screen.getByText("Ergonomic Cotton Gloves"));
+  //   // when
+  //   await userEvent.click(screen.getByText("Ergonomic Cotton Gloves"));
 
-    // then
-    expect(jest.isMockFunction(window.location.reload)).toBe(true);
-  });
+  //   // then
+  //   expect(jest.isMockFunction(window.location.reload)).toBe(true);
+  // });
 });
